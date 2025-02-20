@@ -7,7 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 //  Background Task chale Even After App is Killed
 const backgroundTask = async () => {
-  console.log("🔹 Background Tracking Started");
+  console.log(" Background Tracking Started");
 
   await new Promise((resolve) => {
     const interval = setInterval(async () => {
@@ -110,13 +110,13 @@ const requestPermissions = async () => {
 // Start Background Service
 const startBackgroundService = async () => {
   if (await requestPermissions()) {
-    console.log("🔹 Starting Background Service...");
+    console.log(" Starting Background Service...");
     await BackgroundService.start(backgroundTask, options);
     BackgroundService.isRunning();
   }
 };
 
-// 🔹 Monitor App State (Restart Background Task)
+// Monitor App State (Restart Background Task)
 const handleAppStateChange = async (nextAppState) => {
   if (nextAppState === "background") {
     console.log("App went to background, restarting background service...");
@@ -124,7 +124,7 @@ const handleAppStateChange = async (nextAppState) => {
   }
 };
 
-// 🔹 App Component
+//  App Component
 export default function App() {
   useEffect(() => {
     startBackgroundService();
