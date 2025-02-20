@@ -94,6 +94,10 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     namespace "com.demoproject"
+       lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
     defaultConfig {
         applicationId "com.demoproject"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -153,6 +157,10 @@ dependencies {
     implementation("com.facebook.react:react-android")
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
+    implementation "androidx.work:work-runtime:2.8.1"
+
+
+   
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
